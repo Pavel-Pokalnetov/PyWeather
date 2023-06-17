@@ -1,0 +1,5 @@
+smtp_server: smtp_server_address
+smtp_port: smtp_server_port
+smtp_username: login@example.com
+smtp_password: password
+sender_email: sendermail@example.com

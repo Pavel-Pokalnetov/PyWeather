@@ -2,5 +2,3 @@
 .vscode
 venv
 */__pycache__
-modules/recipients.csv
-modules/smtp_settings.yml

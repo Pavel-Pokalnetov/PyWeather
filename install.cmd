@@ -1,2 +1,4 @@
-ren modules\recipients.csv_ recipients.csv
-ren modules\smtp_settings.yml_ smtp_settings.yml 
+python -m venv venv
+call %cd%\venv\Scripts\activate.bat
+pip install -r requirements.txt
+exit

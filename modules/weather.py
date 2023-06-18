@@ -15,6 +15,7 @@ def get_weather_html(city: str, api_key: str) -> str:
     humidity = data['main']['humidity']
     wind_speed = data['wind']['speed']
     wind_deg = data['wind']['deg']
+    precipitation_type =data["rain"]["1h"] if "rain" in data else "нет данных"
     sunrise = datetime.fromtimestamp(data['sys']['sunrise']).strftime('%H:%M:%S')
     sunset = datetime.fromtimestamp(data['sys']['sunset']).strftime('%H:%M:%S')
     if sunrise==sunset: polarday=True
@@ -32,6 +33,8 @@ def get_weather_html(city: str, api_key: str) -> str:
             Температура: {temperature}°C</br>
             Влажность: {humidity}%</br>
             Точка росы: {dew_point}°C</br>
+            Описание: {description}</br>
+            Объем осадков за последний час (мм): {precipitation_type}</br>
             Направление ветра: {get_wind_direction(wind_deg)}</br>
             Скорость ветра: {wind_speed} м/с</br>
             """
@@ -43,7 +46,6 @@ def get_weather_html(city: str, api_key: str) -> str:
             Заход солнца: {sunset}</br>
             """
     html+=f"""
-            Описание: {description}</br>
         </body>
     </html>
     """
